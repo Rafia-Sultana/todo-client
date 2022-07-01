@@ -80,40 +80,46 @@ const Todo = () => {
 
     return (
 
-        <div>
-            <div className="">
-                <h1 className='heding'>Todo List</h1>
+        <div >
+            <div className='w-[400px] mx-auto'>
+                <div className="">
+                    <h1 className='heding'>Todo List</h1>
+                </div>
+                <form className='form' onSubmit={e => addItem(e)}>
+                    <input type="text" placeholder='Add Todo Item' onChange={e => { setItemText(e.target.value) }} value={itemText} />
+                    <button className='font-semibold' type='submit'>Add</button>
+                </form>
+                <div className="todo-listItems">
+                    {
+                        listItems.map(item => {
+                            return (
+                                <div className="todo-item" key={item._id}>
+                                    {
+                                        isUpdating === item._id
+                                            ? renderUpdateForm()
+                                            : <>
+                                                <p className='item-content'>{item.item}</p>
+                                                <button className='update-item' onClick={() => { setIsUpdating(item._id) }}>Update</button>
+                                                <button className='delete-item' onClick={() => { deleteItem(item._id) }}>Delete</button>
+                                            </>
+                                    }
+
+                                </div>
+                            )
+                        })
+                    }
+
+
+
+
+                </div>
+
             </div>
-            <form className='form' onSubmit={e => addItem(e)}>
-                <input type="text" placeholder='Add Todo Item' onChange={e => { setItemText(e.target.value) }} value={itemText} />
-                <button className='font-semibold' type='submit'>Add</button>
-            </form>
-            <div className="todo-listItems">
-                {
-                    listItems.map(item => {
-                        return (
-                            <div className="todo-item" key={item._id}>
-                                {
-                                    isUpdating === item._id
-                                        ? renderUpdateForm()
-                                        : <>
-                                            <p className='item-content'>{item.item}</p>
-                                            <button className='update-item' onClick={() => { setIsUpdating(item._id) }}>Update</button>
-                                            <button className='delete-item' onClick={() => { deleteItem(item._id) }}>Delete</button>
-                                        </>
-                                }
-
-                            </div>
-                        )
-                    })
-                }
-
-
-
-
-            </div>
-
         </div>
+
+
+
+
     );
 };
 
