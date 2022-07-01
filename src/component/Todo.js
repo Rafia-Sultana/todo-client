@@ -11,7 +11,7 @@ const Todo = () => {
     const addItem = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post('http://localhost:5500/api/item', { item: itemText })
+            const res = await axios.post('https://true-smarties-90492.herokuapp.com/api/item', { item: itemText })
             /*    console.log(res); */
             setListItems(prev => [...prev, res.data])
             setItemText('')
@@ -26,7 +26,7 @@ const Todo = () => {
     useEffect(() => {
         const getItemsList = async () => {
             try {
-                const res = await axios.get('http://localhost:5500/api/items')
+                const res = await axios.get('https://true-smarties-90492.herokuapp.com/api/items')
                 setListItems(res.data);
                 console.log('render')
             } catch (error) {
@@ -40,7 +40,7 @@ const Todo = () => {
     //delete item when click on delete item
     const deleteItem = async (id) => {
         try {
-            const res = await axios.delete(`http://localhost:5500/api/item/${id}`)
+            const res = await axios.delete(`https://true-smarties-90492.herokuapp.com/api/item/${id}`)
             const newListItems = listItems.filter(item => item._id !== id)
             setListItems(newListItems);
             console.log(res.data);
@@ -55,7 +55,7 @@ const Todo = () => {
     const updateItem = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.put(`http://localhost:5500/api/item/${isUpdating}`, { item: updateItemText })
+            const res = await axios.put(`https://true-smarties-90492.herokuapp.com/api/item/${isUpdating}`, { item: updateItemText })
 
             const updatedItemIndex = listItems.findIndex(item => item._id === isUpdating)
             const updatedItem = listItems[updatedItemIndex].item = updateItemText;
