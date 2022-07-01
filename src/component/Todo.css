@@ -1,0 +1,71 @@
+.heding {
+    font-size: 40px;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.form input[type="text"] {
+    padding: 10px;
+    width: 85%;
+    border: 1px solid #eee;
+    border-radius: 6px;
+}
+
+.form input[type="text"]:focus,
+.form button[type="submit"]:focus {
+    outline: none;
+}
+
+.form button[type="submit"] {
+    background-color: #008080;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.todo-listItems {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.todo-item button {
+    padding: 8px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.todo-item button:focus {
+    outline: none;
+}
+
+.item-content {
+    width: 60%;
+}
+
+.update-item {
+    background-color: goldenrod;
+
+
+}
+
+.delete-item {
+    background-color: red;
+    color: #fff;
+}

@@ -1,5 +1,26 @@
 .App {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  /*  width: 500px; */
+  /* margin: 50px auto; */
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.update-form {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.update-new-input {
+  width: 80%;
+  border-radius: 60px;
+  border: 1px solid #eee;
+  padding: 8px;
+  outline: none;
 }
 
 .App-logo {
@@ -32,6 +53,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
